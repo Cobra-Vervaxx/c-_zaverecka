@@ -1,0 +1,12 @@
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\bin\Debug\Zaverecka_Operak.exe.config
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\bin\Debug\Zaverecka_Operak.exe
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\bin\Debug\Zaverecka_Operak.pdb
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.csproj.AssemblyReference.cache
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.csproj.SuggestedBindingRedirects.cache
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.Form1.resources
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.Properties.Resources.resources
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.csproj.GenerateResource.cache
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.csproj.CoreCompileInputs.cache
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.exe
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.pdb
+D:\programy\Zaverecka_Operak\Zaverecka_Operak\obj\Debug\Zaverecka_Operak.Form2.resources
