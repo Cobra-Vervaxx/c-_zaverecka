@@ -19,6 +19,7 @@ namespace Zaverecka_Operak
         string username = "";
         string password = "";
         bool create;
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -29,17 +30,28 @@ namespace Zaverecka_Operak
             button2.Font= new Font("Arial", 12, FontStyle.Bold);
             radioButton1.Font= new Font("Arial", 12, FontStyle.Bold);
             radioButton2.Font= new Font("Arial", 12, FontStyle.Bold);
-            string filepath = "C:\\Users\\vrchl\\OneDrive\\Dokumenty\\prihlasenidlouhodobka.txt";
-            if(File.Exists(filepath))
+            string currentUser = Environment.UserName;
+            string filepath = "C:\\Users\\" + currentUser + "\\" + "Dokumenty\\prihlasenidlouhodobka.txt";
+            radioButton1.Location = new Point(965, 690);
+            radioButton2.Location = new Point(965, 720);
+          
+
+            if (File.Exists(filepath))
             {
-                System.IO.StreamReader sr;
-                sr = new System.IO.StreamReader(filepath);
-                string radek;
-                while((radek=sr.ReadLine())!=null)
+                FileInfo fileInfo = new FileInfo(filepath);
+                if (fileInfo.Length != 0)
                 {
-                    username = radek;
-                    password = radek;
+                    System.IO.StreamReader sr;
+                    sr = new System.IO.StreamReader(filepath);
+                    string radek;
+                    while ((radek = sr.ReadLine()) != null)
+                    {
+                        username = radek;
+                        password = radek;
+                    }
                 }
+               
+            
             }
             else
             {
@@ -63,13 +75,22 @@ namespace Zaverecka_Operak
 
             if (create == true)
             {
-                System.IO.StreamWriter sw;
-                sw = new System.IO.StreamWriter("C:\\Users\\vrchl\\OneDrive\\Dokumenty\\prihlasenidlouhodobka.txt");
-                sw.WriteLine(tbUserName.Text);
-                sw.WriteLine(tbPassword.Text);
-                sw.Close();
-                MessageBox.Show("Account has been created succesfully, now the system will restart","Congrats",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                this.Dispose();
+                
+                if (tbUserName.Text != string.Empty && tbPassword.Text != string.Empty && tbUserName.Text != "admin" && tbPassword.Text != "admin")
+                {
+                    System.IO.StreamWriter sw;
+                    string currentUser = Environment.UserName;
+                    string filepath = "C:\\Users\\" + currentUser + "\\" + "Dokumenty\\prihlasenidlouhodobka.txt";
+                    sw = new System.IO.StreamWriter(filepath);
+                    sw.WriteLine(tbUserName.Text);
+                    sw.WriteLine(tbPassword.Text);
+                    sw.Close();
+                    MessageBox.Show("Account has been created succesfully, now the system will restart", "Congrats", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                }
+                else if (tbUserName.Text == "admin" || tbPassword.Text == "admin") MessageBox.Show("cannot make admin acc","Warning",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("enter both username and password","Warning",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
 
@@ -82,7 +103,7 @@ namespace Zaverecka_Operak
 
             if (radioButton1.Checked)
             {
-                if (tbUserName.Text == "admin"&&tbPassword.Text=="admin") {
+                if (tbUserName.Text == "admin"&&tbPassword.Text=="admin"&&create==false) {
 
                     Form2 f2 = new Form2();
                     f2.TopLevel = true;
@@ -155,5 +176,22 @@ namespace Zaverecka_Operak
                 this.Dispose();
             }
         }
+
+
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                button1.PerformClick();
+                return true; // Prevents further processing of the Enter key
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
+
+
+
     }
 }
