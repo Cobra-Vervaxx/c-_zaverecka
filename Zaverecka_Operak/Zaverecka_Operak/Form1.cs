@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml.Linq;
+
 namespace Zaverecka_Operak
 {
     public partial class Form1 : Form
@@ -32,8 +34,7 @@ namespace Zaverecka_Operak
             radioButton2.Font= new Font("Arial", 12, FontStyle.Bold);
             string currentUser = Environment.UserName;
             string filepath = "C:\\Users\\" + currentUser + "\\" + "Dokumenty\\prihlasenidlouhodobka.txt";
-            radioButton1.Location = new Point(965, 690);
-            radioButton2.Location = new Point(965, 720);
+          
           
 
             if (File.Exists(filepath))
@@ -126,7 +127,7 @@ namespace Zaverecka_Operak
                     MessageBox.Show("Wrong Credentials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            if(radioButton2.Checked)
+            if (radioButton2.Checked)
             {
                 if (tbUserName.Text == username&& tbPassword.Text == password)
                 {
